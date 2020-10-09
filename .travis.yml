@@ -7,6 +7,7 @@ jdk:
   - oraclejdk8
 
 before_install:
+  - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then sudo apt install maven; fi
   - cat /etc/mavenrc
   - sudo rm /etc/mavenrc
   - export MAVEN_OPTS="-Dmaven.repo.local=$HOME/.m2/repository -Xmx2g -Dorg.slf4j.simpleLogger.showDateTime=true -Dorg.slf4j.simpleLogger.dateTimeFormat=HH:mm:ss:SSS"
